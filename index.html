@@ -42,6 +42,8 @@
                     <div
                         class="thumb"
                         v-for="(image, index) in images"
+                        @click="setImage(index)"
+                        :class="{active: isActive(index)}"
                     >
                         <img
                             :src="image.image"

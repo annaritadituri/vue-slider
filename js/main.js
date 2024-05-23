@@ -62,5 +62,15 @@ const { createApp } = Vue
 
         },
 
+        setImage(position) {
+            this.currentIndex = position;
+        },
+
+        isActive(position) {
+            if (position === this.currentIndex) {
+                return true;
+            }
+        }
+
     }
   }).mount('#app')
