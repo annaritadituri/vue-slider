@@ -36,6 +36,7 @@ const { createApp } = Vue
                 }
             ],
             currentIndex: 0,
+            currentInverval: null,
 
         }
     },
@@ -67,10 +68,20 @@ const { createApp } = Vue
         },
 
         isActive(position) {
-            if (position === this.currentIndex) {
-                return true;
-            }
+            if (position === this.currentIndex) return true;
+        },
+
+        stopAutoplay() {
+            clearInterval(this.currentInverval);
+        },
+
+        startAutoplay() {
+            this.currentInverval = setInterval(this.nextImage, 3000);
         }
 
+    },
+
+    mounted() {
+        this.currentInverval = setInterval(this.nextImage, 3000);
     }
   }).mount('#app')
